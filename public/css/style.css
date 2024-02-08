@@ -1,83 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 body {
-    background-color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
-}
-
-.buttons {
-    display: flex;
     justify-content: center;
-    margin-top: 20px;
-    flex-direction: row;
-    align-items: end;
-    flex-wrap: wrap;
+    background-color: #ff758f;
+  }
+
+  .valentines-day-card {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    background-color: #ff8fa3;
+    overflow: hidden;
+    border:10px solid white;
+    border-radius:10px;
+    box-shadow: 0 0 100px rgba(0,0,0,.4);
+  }
+  
+  .valentines-day-card:before {
+    content: "";
+    position: absolute;
+    background-color: #ffb3c1;
+    width: 20%; /* Adjusted width for responsiveness */
+    height: 20%; /* Adjusted height for responsiveness */
+    border-radius: 50%;
+    top: 46%; /* Adjusted top position for responsiveness */
+    left: -5%; /* Adjusted left position for responsiveness */
+    box-shadow: 15% 6% #ffb3c1, 32.5% 3% #ffb3c1, 47.5% 6% #ffb3c1, 65% -1.5% #ffb3c1, 85% 6% #ffb3c1; /* Adjusted box-shadow positions for responsiveness */
 }
+  
+  .valentines-day-card:after {
+    content:"";
+    position: absolute;
+    background-color: #ffccd5;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    top:160px;
+    left:-40px;
+    box-shadow: 50px 20px #ffccd5,120px 40px #ffccd5, 200px 15px #ffccd5,260px 30px #ffccd5, 330px 30px #ffccd5,380px 10px #ffccd5;
+  }
+  
+  .clouds {
+    position: absolute;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background-color: #fff0f3;
+    z-index:5;
+    top:210px;
+    left:-20px;
+    box-shadow: 55px 30px #fff0f3, 125px 10px #fff0f3,175px 20px #fff0f3, 250px 10px #fff0f3, 320px 5px #fff0f3, 380px 10px #fff0f3;
+  }
 
-#no-button {
-    margin: 0 10px;
-    color: white;
-    background-color: red;
-    height: 40px !important;
-    width: auto;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
+  .hearts {
+    position: absolute;
+    z-index:2;
+  }
+  
+  .heartOne {
+    position: absolute;
+    left:100px;
+    top:250px;
+    animation: up 4s linear forwards 1s;
+  }
+  
+  .heartTwo {
+    position: absolute;
+    left:270px;
+    top:230px;
+    animation: up 5s linear forwards 1.8s;
+  }
+  
+  .heartThree {
+    position: absolute;
+    left:85px;
+    top:415px;
+    animation: up 5s linear forwards 3s;
+  }
+  
+  .heartFour {
+    position: absolute;
+    left:320px;
+    top:380px;
+    animation: upTwo 9s linear infinite 3.5s;
+  }
+  
+  .heartFive {
+    position: absolute;
+    left:150px;
+    top:400px;
+    animation: upTwo 13s linear infinite 4.5s;
+  }
+  
+  .right-side:before, .right-side:after {
+    position: absolute;
+    content:"";
+    transform-origin: left;
+    animation: move 1s ease infinite;
+  }
+  
+  .right-side:before {
+    border-radius:50% 50% 50% 0;
+    width:21px;
+    height:20px;
+    background-color: #c9184a;
+    left:-0.26px;
+  }
+  
+  .right-side:after {
+    height:0;
+    width:0;
+    border-bottom:10px solid transparent;
+    border-left: 15px solid #c9184a;
+    top:19px;
+    left:-0.26px;
+  }
+  
+  @keyframes move {
+    0%, 100% {transform: rotateY(0);}
+    50% {transform: rotateY(-45deg);}
+  }
+  
+  .left-side:before, .left-side:after {
+    position: absolute;
+    content:"";
+    transform-origin: right;
+    animation: move 1s ease infinite;
+  }
+  
+  .left-side:before {
+    border-radius:50% 50% 0 50%;
+    width:20px;
+    height:20px;
+    left:-20.7px;
+    background-color: #ff4d6d;
+  }
+  
+  .left-side:after {
+    height:0;
+    width:0;
+    left:-15px;
+    border-bottom:10px solid transparent;
+    border-right: 15px solid #ff4d6d;
+    top:19px;
+  }
+  
+  @keyframes up {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-200px);}
+  }
+  
+  @keyframes upTwo {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-450px);}
+  }
 
-    p {
-        margin: 0;
-        object-fit: contain;
-    }
-}
-
-#yes-button {
-    margin: 0 10px;
-    color: white;
-    border: none;
-    background-color: green;
-    cursor: pointer;
-    height: 40px;
-
-    p {
-        margin: 0;
-        object-fit: contain;
-    }
-}
-
-/* Make responsive for mobile */
-@media (max-width: 768px) {
-    body {
-        padding: 0 20px;
-    }
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 20px;
-    padding: 20px;
+  .text {
+    position: absolute;
+    color: #800f2f;
+    font-size:30px;
+    font-family: 'Pacifico', cursive;
+    line-height:1;
     text-align: center;
-}
-
-.message {
+    width:380px;
+    left:10px;
+    z-index:3;
+    top:320px;
+    animation: up 1s ease forwards;
+    transition: .2s;
+  }
+  
+  .hover {
+    color: white;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+  }
+  
+  .text:hover span {
     display: none;
-}
-
-.banner-gif {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-
-    img {
-        width: auto;
-        height: 250px;
-    }
-}
-
-/* Path: /js/script.js */
+  }
+  
+  .text:hover:before {
+    content:"Ntokazi kaNdlovu, iLanga loThando is upon us. I ask your hand in being my Valentine offically, Even as you my Ms LOML ";
+    font-size:15px;
+  
+  }
