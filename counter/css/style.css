@@ -1036,3 +1036,24 @@ h2 {
 		padding: 25px 45px;
 	}
 }
+
+/* styles.css */
+
+#revealButton {
+    display: none; /* Initially hidden */
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#revealButton:hover {
+    background-color: darkred;
+}
+
+.clicker {
+	z-index: 999;
+}

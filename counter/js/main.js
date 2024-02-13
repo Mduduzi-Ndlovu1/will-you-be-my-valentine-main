@@ -55,15 +55,30 @@ $(window).load(function(){
 /* END ------------------------------------------------------- */
 
 
-$('#countdown').countdown({
-	date: "Mar 25 2021",
-	render: function(data) {
-	  var el = $(this.el);
-	  el.empty()
-	    //.append("<div>" + this.leadingZeros(data.years, 4) + "<span>years</span></div>")
-	    .append("<div>" + this.leadingZeros(data.days, 2) + " <span>days</span></div>")
-	    .append("<div>" + this.leadingZeros(data.hours, 2) + " <span>hrs</span></div>")
-	    .append("<div>" + this.leadingZeros(data.min, 2) + " <span>min</span></div>")
-	    .append("<div>" + this.leadingZeros(data.sec, 2) + " <span>sec</span></div>");
-	}
+$(document).ready(function() {
+    $('#countdown').countdown({
+        date: "February 14, 2024",
+        render: function(data) {
+            var el = $(this.el);
+            el.empty()
+                .append("<div>" + this.leadingZeros(data.days, 2) + " <span>days</span></div>")
+                .append("<div>" + this.leadingZeros(data.hours, 2) + " <span>hrs</span></div>")
+                .append("<div>" + this.leadingZeros(data.min, 2) + " <span>min</span></div>")
+                .append("<div>" + this.leadingZeros(data.sec, 2) + " <span>sec</span></div>");
+
+            // Check if the countdown has reached the end date
+            if (data.total <= 0) {
+                // If reached, reveal the button
+                $('#revealButton').show();
+            } else {
+                // If not reached, hide the button
+                $('#revealButton').hide();
+            }
+        }
+    });
+
+    // Button click event to redirect to the desired URL
+    $('#revealButton').on('click', function() {
+        window.location.href = "../Valentines day/index.html";
+    });
 });

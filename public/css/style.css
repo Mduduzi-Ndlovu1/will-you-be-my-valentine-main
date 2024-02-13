@@ -7,7 +7,16 @@ body {
     justify-content: center;
     background-color: #ff758f;
   }
-
+.choices {
+  display: flex;
+  gap: 2rem;
+}
+.button {
+  background-color: red;
+  padding: 2rem;
+  border-radius: 6px;
+  border: 2px solid white;
+}
   .valentines-day-card {
     position: relative;
     width: 400px;
